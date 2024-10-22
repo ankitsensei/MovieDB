@@ -1,26 +1,33 @@
-import React, {useEffect} from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Card from './Card';
 
-const BASE_URL = "https://www.omdbapi.com/?i=tt3896198&apikey=2d5a1d48"
-
-const getMovieData = async () => {
-  try{
-    const response = await axios.get(BASE_URL);
-    console.log(response.data)
-  }
-  catch (error) {
-    console.log(error)
-  }
-}
 const App = () => {
+  const [data, setData] = useState(null);
+
+  const getMovieData = async () => {
+    try {
+      const response = await axios.get(`https://www.omdbapi.com/?t={iron+man}&apikey=2d5a1d48`);
+      setData(response.data); 
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    getMovieData()
-  },[])
+    getMovieData();
+  }, []);
+
   return (
     <div className="bg-zinc-900 w-full h-screen text-white">
-      <h1>Hello</h1>  
+      {data ? (
+        <Card movieData={data} />
+      ) : (
+        <p>Loading...</p> 
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
