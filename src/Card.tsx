@@ -1,7 +1,13 @@
-import React from 'react';
+interface MovieData {
+    Poster: string;
+    Title: string;
+    Type: string;
+    Year: string;
+    imdbID: string;
+}
 
-const Card = ({ movieData }) => {
-    const { Poster, Title, Type, Year, imdbID} = movieData;
+const Card = ({ movieData }: { movieData: MovieData }) => {
+    const { Poster, Title, Type, Year, imdbID } = movieData;
 
     return (
         <div className='flex flex-col w-[250px] gap-2'>
@@ -15,7 +21,7 @@ const Card = ({ movieData }) => {
                 </div>
             </div>
         </div>
-    );  
+    );
 };
 
 export default Card;

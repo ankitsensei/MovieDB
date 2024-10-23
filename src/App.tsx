@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card';
 
@@ -49,7 +49,7 @@ const App = () => {
         <ul className="movie-list flex w-full justify-center gap-20 flex-wrap">
           {movies.length > 0 ? (
             movies.map((movie) => (
-              <Card key={movie.imdbID} movieData={movie} />
+              <Card key={movie} movieData={movie} />
             ))
           ) : (
             <p>No movies found</p>
