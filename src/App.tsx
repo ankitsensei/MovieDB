@@ -44,7 +44,7 @@ const App = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className='text-black w-96 h-10 py-2'
+          className='text-black w-96 h-10 py-2 px-2'
         />
         <button
           className='bg-red-600 w-24 h-10 hover:bg-red-700'
