@@ -2,8 +2,18 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card';
 
+// Import or define MovieData interface here
+interface MovieData {
+  Poster: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbID: string;
+}
+
 const App = () => {
-  const [movies, setMovies] = useState([]);
+  // Explicitly type the movies state as an array of MovieData
+  const [movies, setMovies] = useState<MovieData[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('Batman');
 
@@ -48,8 +58,8 @@ const App = () => {
       ) : (
         <ul className="movie-list flex w-full justify-center gap-20 flex-wrap">
           {movies.length > 0 ? (
-            movies.map((movie) => (
-              <Card key={movie} movieData={movie} />
+            movies.map((movie: MovieData) => ( // Make sure to type `movie` correctly
+              <Card key={movie.imdbID} movieData={movie} />
             ))
           ) : (
             <p>No movies found</p>
