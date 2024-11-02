@@ -38,7 +38,7 @@ const App = () => {
   };
 
   return (
-    <div className="bg-zinc-900 w-full h-full text-white">
+    <div className="bg-neutral-900 w-full h-full text-white">
       <div className="flex justify-center pb-20 pt-10">
         <input
           type="text"
